@@ -1,0 +1,40 @@
+﻿@model List<CURDCORE2PM.Models.empmodel> 
+
+<style>
+    h1{
+        background-color:#e66691
+    }
+    .container{
+        background-color:#439797
+    }
+    body {
+        background-color: #439797
+    }
+</style>
+<h1>Student Details</h1>
+<div class="container">
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Mobile</th>
+            <th>Email</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Course</td>
+                <td>@item.Mobile</td>
+                <td>@item.Email</td>
+                <td><a href="@Url.Action("Edit","Home" ,new{ item.Id })" class="btn btn-primary">Edit</a></td>
+                <td><a href="@Url.Action("Delete","Home" ,new{ item.Id })" class="btn btn-danger">Delete</a></td>
+            </tr>
+
+        }
+    </table>
+</div>
